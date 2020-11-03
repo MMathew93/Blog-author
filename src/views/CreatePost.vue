@@ -1,19 +1,19 @@
 <template>
-  <div class="hub">
+  <div class="createnewpost">
     <Header />
-    <PostsDisplay />
+    <PostModal />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
-import PostsDisplay from "@/components/PostsDisplay";
+import PostModal from "@/components/PostModal";
 
 export default {
-  name: "Hub",
+  name: "CreatePost",
   components: {
     Header,
-    PostsDisplay
+    PostModal
   }
 };
 </script>

@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <loginModal />
+    <LoginModal />
   </div>
 </template>
 
 <script>
-import loginModal from "@/components/loginModal";
+import LoginModal from "@/components/LoginModal";
 
 export default {
   name: "Home",
   components: {
-    loginModal
+    LoginModal
   }
 };
 </script>

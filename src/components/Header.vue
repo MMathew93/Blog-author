@@ -4,10 +4,10 @@
       <template slot="brand" />
       <template slot="end">
         <b-navbar-dropdown right collapsible label="Info">
-          <b-navbar-item tag="router-link" :to="{ path: '/about' }">
-            About Me
+          <b-navbar-item tag="router-link" :to="{ path: '/posts/create' }">
+            Create New Post
           </b-navbar-item>
-          <b-navbar-item href="https://github.com/MMathew93/Blog-Project">
+          <b-navbar-item href="https://github.com/MMathew93/Blog-author">
             Source Code
           </b-navbar-item>
         </b-navbar-dropdown>

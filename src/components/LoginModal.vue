@@ -44,14 +44,14 @@ export default {
           "http://localhost:3000/admin/login",
           attempt
         );
-        this.username = "";
-        this.password = "";
         if (res.data.token) {
           let token = res.data.token;
           localStorage.setItem("SavedToken", "Bearer " + token);
           axios.defaults.headers.common["Authorization"] = "Bearer " + token;
           this.$router.push({ name: "Hub" });
         } else {
+          this.username = "";
+          this.password = "";
           this.errors = res.data.errors;
         }
       } catch (err) {
