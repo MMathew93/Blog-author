@@ -7,6 +7,9 @@
           <b-navbar-item tag="router-link" :to="{ path: '/posts/create' }">
             Create New Post
           </b-navbar-item>
+          <b-navbar-item tag="router-link" :to="{ path: '/posts' }">
+            All Posts
+          </b-navbar-item>
           <b-navbar-item href="https://github.com/MMathew93/Blog-author">
             Source Code
           </b-navbar-item>

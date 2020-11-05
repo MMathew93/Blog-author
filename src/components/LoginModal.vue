@@ -12,7 +12,6 @@
         <b-field label="password">
           <b-input v-model="password" />
         </b-field>
-        <div class="button-box"></div>
       </form>
       <b-field>
         <b-button native-type="button" @click="login">Log In</b-button>

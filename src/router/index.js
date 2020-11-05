@@ -24,7 +24,28 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "createpost" */ "../views/CreatePost.vue")
+    component: () =>
+      import(/* webpackChunkName: "createpost" */ "../views/CreatePost.vue")
+  },
+  {
+    path: "/posts/update/:id",
+    name: "UpdatePost",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "updatepost" */ "../views/UpdatePost.vue"),
+    props: true
+  },
+  {
+    path: "/posts/delete/:id",
+    name: "DeletePost",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "deletepost" */ "../views/DeletePost.vue"),
+    props: true
   }
 ];
 

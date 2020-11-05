@@ -6,7 +6,7 @@
         <div class="form-box">
           <form class="form">
             <b-field label="Title">
-              <b-input v-model="title" />
+              <b-input type="text" v-model="title" />
             </b-field>
             <editor
               v-model="text"
@@ -51,16 +51,29 @@ import Editor from "@tinymce/tinymce-vue";
 import axios from "axios";
 
 export default {
-  name: "PostModal",
+  name: "EditModal",
   components: {
     editor: Editor
   },
+  props: ["postId"],
   data() {
     return {
+      post: "",
       title: "",
       text: "",
       isPublished: "Draft"
     };
+  },
+  async mounted() {
+    try {
+      const res = await axios.get("http://localhost:3000/posts/" + this.postId);
+      this.post = res.data;
+      this.title = this.post.title;
+      this.text = this.post.text;
+      this.isPublished = this.post.isPublished === true ? "Published" : "Draft";
+    } catch (err) {
+      throw new Error(err);
+    }
   },
   methods: {
     submission() {
@@ -70,7 +83,7 @@ export default {
         isPublished: this.isPublished === "Published" ? true : false
       };
       try {
-        axios.post("http://localhost:3000/posts/create", newPost);
+        axios.put("http://localhost:3000/posts/update/" + this.postId, newPost);
         this.title = "";
         this.text = "";
         this.isPublished = "Draft";

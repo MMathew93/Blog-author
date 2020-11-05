@@ -22,8 +22,18 @@
                 <span>{{ post.postedDate }}</span>
               </div>
               <div class="button-box">
-                <b-button> Edit </b-button>
-                <b-button> Delete </b-button>
+                <b-button
+                  tag="router-link"
+                  :to="{ name: 'UpdatePost', params: { id: `${post._id}` } }"
+                >
+                  Edit
+                </b-button>
+                <b-button
+                  tag="router-link"
+                  :to="{ name: 'DeletePost', params: { id: `${post._id}` } }"
+                >
+                  Delete
+                </b-button>
               </div>
             </div>
           </div>
@@ -90,6 +100,7 @@ export default {
   flex-direction: column !important;
   align-items: center !important;
 }
+
 .post {
   display: flex;
   margin: 25px;
