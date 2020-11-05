@@ -61,7 +61,7 @@ export default {
       post: "",
       title: "",
       text: "",
-      isPublished: "Draft"
+      isPublished: ""
     };
   },
   async mounted() {
