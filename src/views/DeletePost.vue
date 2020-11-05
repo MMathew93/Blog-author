@@ -17,12 +17,9 @@ export default {
   name: "DeletePost",
   props: { id: String },
   methods: {
-    async deletePost() {
+    deletePost() {
       try {
-        const res = await axios.delete(
-          "http://localhost:3000/posts/delete/" + this.id
-        );
-        res.status = 200;
+        axios.delete("http://localhost:3000/posts/delete/" + this.id);
         this.$router.push({ name: "Hub" });
       } catch (err) {
         throw new Error(err);
