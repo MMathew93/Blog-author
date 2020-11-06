@@ -2,8 +2,15 @@
   <section class="login">
     <div class="title">LOG IN</div>
     <div class="form-box">
-      <div class="errors" v-for="error in errors" :key="error.msg">
-        {{ error.msg }}
+      <div v-if="this.errors !== undefined">
+        <div class="errors" v-for="error in errors" :key="error.msg">
+          {{ error.msg }}
+        </div>
+      </div>
+      <div v-else>
+        <div class="errors">
+          {{ invalid }}
+        </div>
       </div>
       <form class="form">
         <b-field label="Username">
@@ -29,7 +36,8 @@ export default {
     return {
       username: "",
       password: "",
-      errors: []
+      errors: null,
+      invalid: null
     };
   },
   methods: {
@@ -52,6 +60,7 @@ export default {
           this.username = "";
           this.password = "";
           this.errors = res.data.errors;
+          this.invalid = res.data.message;
         }
       } catch (err) {
         console.error(err);

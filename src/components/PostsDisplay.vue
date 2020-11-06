@@ -32,14 +32,14 @@
                   tag="router-link"
                   :to="{ name: 'DeletePost', params: { id: `${post._id}` } }"
                 >
-                {{ post.isPublished }}
                   Delete
                 </b-button>
-                <div v-if="`${post.isPublished}`">
+                <div class="published" v-if="`${post.isPublished}` === 'true'">
                   <span class="icon has-text-info">
                     <i class="fas fa-check-circle is-success"></i>
                   </span>
                 </div>
+                <div v-else class="published"></div>
               </div>
             </div>
           </div>
@@ -127,5 +127,13 @@ p {
 
 .button-box {
   align-items: center;
+}
+
+.published {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

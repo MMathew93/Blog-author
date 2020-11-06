@@ -4,6 +4,22 @@
   </div>
 </template>
 
+<script>
+import axios from "axios";
+export default {
+  name: "app",
+  async mounted() {
+    if (localStorage.getItem("SavedToken")) {
+      axios.defaults.headers.common["Authorization"] = localStorage.getItem(
+        "SavedToken"
+      );
+    } else {
+      this.$router.push({ name: "LogIn" });
+    }
+  }
+};
+</script>
+
 <style>
 html {
   height: 100%;
