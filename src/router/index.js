@@ -46,6 +46,30 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "deletepost" */ "../views/DeletePost.vue"),
     props: true
+  },
+  {
+    path: "/posts/:id/comments",
+    name: "PostComments",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "postcomments" */ "../views/PostComments.vue"
+      ),
+    props: true
+  },
+  {
+    path: "/posts/:postId/comments/:commentId",
+    name: "DeleteComment",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "deletecomment" */ "../views/DeleteComment.vue"
+      ),
+    props: true
   }
 ];
 

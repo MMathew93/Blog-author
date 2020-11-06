@@ -34,6 +34,12 @@
                 >
                   Delete
                 </b-button>
+                <b-button
+                  tag="router-link"
+                  :to="{ name: 'PostComments', params: { id: `${post._id}` } }"
+                >
+                  Comments
+                </b-button>
                 <div class="published" v-if="`${post.isPublished}` === 'true'">
                   <span class="icon has-text-info">
                     <i class="fas fa-check-circle is-success"></i>
